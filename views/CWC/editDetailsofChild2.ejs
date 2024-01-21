@@ -1,0 +1,187 @@
+<%- include("../partials/headerCwcDashboard")%>
+
+<section id="content-area">
+        
+    <!--heading-->
+    <div class="child-view-starting">
+       <a class="child-view-back" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+       <a class="op" href=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+       <a class="op" href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+    </div>
+        
+    <!--details-->
+    <div class="container">
+       <form method="POST" action="/cwc/dashboard/editChildDetails/<%=employee.employee_id%>/<%=child.child_id%>">
+            <div class="personalinfo child-view">
+                <!--image-->
+                <div class="image">
+                    <img src="/images/icons/usericon.svg" alt="">                  
+                </div>
+                <h5 for="">ID : <%= child.child_id.toUpperCase() %></h5>
+                   
+                <hr>
+                <div class="form-group">
+                    <label for="" class="fields">FIRST NAME</label>   <br>
+                    <input  name="firstName" for=""  value="<%= child.firstName.toUpperCase() %>">
+                    
+                </div> 
+                <div class="form-group">                               
+                    <div class="row position">
+                        <div class="col-sm-6">
+                            <label for="" class="fields">DATE OF BIRTH</label> <br>
+                            <input name="dateOfBirth" for=""  value="<%= child.dateOfBirth %>">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="" class="fields">AGE</label> <br>
+                            <input name="age" for="" value="<%= child.age %>" >
+                        </div>                             
+                    </div>                   
+                </div>
+
+                
+
+                <div class="form-group">                               
+                    <div class="row position">
+                        <div class="col-sm-6">
+                            <label for="" class="fields">GENDER</label> <br>
+                            <input name="gender" for="" value="<%= child.gender.toUpperCase() %>" >
+                            
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="" class="fields">CASTE</label> <br>
+                            <input name="caste" for="" value="<%= child.caste %>" >
+                        </div>                             
+                    </div>                   
+                </div>
+
+                
+
+                <div class="form-group">
+                    <label for="" class="fields">AADHAAR NUMBER</label> <br>
+                    <input name="aadharNumber" for="" value="" >
+                </div> 
+
+                
+                <div class="form-group">                               
+                    <div class="row position">
+                        <div class="col-sm-6">
+                            <label for="" class="fields">FATHER'S NAME</label> <br>
+                            <input name="fatherName" for="" value="<%= child.fatherName.toUpperCase() %>" >
+                           
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="" class="fields">MOTHER'S NAME</label> <br>
+                            <input name="motherName" for="" value="<%= child.motherName.toUpperCase() %>" >
+                          
+                        </div>                             
+                    </div>                   
+                </div>
+
+
+                <hr>
+                <div class="form-group">
+                    <div class="row position">        
+                        <div class="col-sm-4">
+                            <label for="" class="fields">BLOOD GROUP</label> <br>
+                            <label for="" class="values view-child-details-data">A(+ve)</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="" class="fields">HIEGHT</label><br>
+                             <label for="" class="values view-child-details-data">4 feet</label>  
+                        </div>
+                        <div class="col-sm-4">
+                            
+                            <label for="" class="fields">WEIGHT</label> <br>
+                            <label for="" class="values view-child-details-data">35 kgs</label>
+                        </div>
+                    </div>
+                    
+                </div> 
+                
+                
+
+                <!-- <div class="form-group">
+                    <div class="row position">
+                    
+                        <div class="col-sm-6">
+                            <label for="" class="fields">GUARDIAN 1</label>
+                            <div class="form-group">
+                                <label for="" class="fields">NAME</label>
+                                <label for="" class="values">Someone Pratap Singh</label>
+                   
+                            </div> 
+                            <div class="form-group">
+                                <label for="" class="fields">AGE</label>
+                               <label for="" class="values">35</label>
+                            </div> 
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="" class="fields">GUARDIAN 2</label>
+                            <div class="form-group">
+                                <label for="" class="fields">NAME</label>
+                                <label for="" class="values">KBC Pratap Singh</label>
+                               
+                            </div> 
+                            <div class="form-group">
+                                <label for="" class="fields">AGE</label>
+                               <label for="" class="values">40</label>
+                            </div> 
+                        </div>
+                       
+                    </div>
+                </div> -->
+                
+               
+                 <div class="form-group">
+                    <label for="" class="fields">PHYSICALLY CHALLENGED</label><br>
+                    <label for="" class="values view-child-details-data">No</label>
+                </div> 
+                <div class="form-group">
+                    <label for="" class="fields">MENTAL ILLNESS</label><br>
+                    <label for="" class="values view-child-details-data">No</label>
+                </div> 
+                
+            
+            
+                <p class="infoheading">Official Information</p>
+                <hr>
+               
+                <div class="form-group">
+                    <label for="" class="fields">ASSIGNED CCI NAME</label> <br>
+                    <input name="cci_name" for="" value="<%= child.cci_name %>" >
+                    
+                </div> 
+                <div class="form-group">
+                    <label for="" class="fields">REGISTRATION DATE AND TIME</label> <br>
+                    <label for="" class="values view-child-details-data"><%= child.registrationDate %></label>
+                </div>
+               
+                <div class="form-group">
+                    <label for="" class="fields">WITNESS</label> <br>
+                    <label for="" class="values view-child-details-data"><%= child.witness_name + " , " +child.witness_id%></label>
+                </div> 
+            
+            
+               <button type="submit" class="btn btn-primary" >Update</button>
+           
+       </form>
+    </div> 
+    
+</section>
+<script
+src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+crossorigin="anonymous"
+></script>
+<script
+src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+crossorigin="anonymous"
+></script>
+<script
+src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+crossorigin="anonymous"
+></script>
+</body>
+</html>

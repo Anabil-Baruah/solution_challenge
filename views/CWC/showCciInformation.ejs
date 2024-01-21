@@ -1,0 +1,150 @@
+<%- include("../partials/headerCwcDashboard")%>
+
+<section id="content-area" class="mt-5 pt-3">
+  <div class="container mt-1 starting p-4">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="head">CCI DETAILS</h2>
+
+        <label for="" class="district">DISTRICT</label>
+        <label for="" class="name white-text"
+          ><%= district.toUpperCase() %></label
+        >
+
+        <p class="number white-text">
+          Total Number Of Child Care Institutions
+        </p>
+        <p class="val white-text">3</p>
+      </div>
+      <div class="col-md-6">
+        <div class="required">
+          <div class="required-image">
+            <img src="/images/cwc/action.svg" alt="an image" />
+          </div>
+          <div class="required-content">
+            <h2 class="required-title">ACTIONS</h2>
+            <p class="required-text">
+              ADD A NEW CCI
+              <a
+                href="/cwc/dashboard/newCciRegistraton/<%= employee.employee_id %>"
+                class="required-buttons"
+              >
+                <i class="fa fa-plus display" aria-hidden="true"></i
+              ></a>
+            </p>
+            <p class="required-text">
+              DELETE A CCI
+              <a href="#" class="required-buttons2">
+                <i class="fa fa-trash display" aria-hidden="true"></i
+              ></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="content3 container">
+    <div class="contain2">
+      <div class="row">
+        <% allCci.forEach(function(cci){ %> <% console.log(cci); %>
+        <div class="col-lg-4 my-4">
+          <div class="card rounded-0">
+            <div class="card-header purple-gradient white-text">
+              <h6 class="">
+                <%= cci.cci_name.toUpperCase() %>
+              </h6>
+              <h4 class="">
+                <b> <%= cci.cci_id.toUpperCase() %> </b>
+              </h4>
+            </div>
+            <div class="card-body">
+              <p class="state border-bottom">
+                TOTAL STRENGTH : <%= cci.strength %>
+              </p>
+              <div class="row">
+                <div class="col-lg-6 d-flex stat my-3">
+                  <div class="mx-auto">
+                    <h1 class="value font-weight-bold">
+                      <%= cci.noOfChildrenEligibleForAdoption %>
+                    </h1>
+                    <h6 class="card1">
+                      ELIGIBLE FOR ADOPTION
+                    </h6>
+                  </div>
+                </div>
+                <div class="col-lg-6 d-flex my-3">
+                  <div class="mx-auto">
+                    <h1 class="value font-weight-bold">
+                      <%= cci.noOfChildrenInWaitingList %>
+                    </h1>
+                    <h6 class="card1">IN WAITING LIST</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer purple-gradient">
+              <% if( ! cci.head_id ){ %>
+              <a href="/cwc/dashboard/newCciEmployeeRegistraton/<%=employee.employee_id%>/<%=cci.cci_id%>" class="no-text-decoration">
+                <div class="container flex-horizontal-around-center">
+                  <span class="white-text graph"
+                    ><i class="fa fa-user-plus white-text"> </i>REGISTER CCI
+                    HEAD</span
+                  >
+                  <div></div>
+                </div>
+              </a>
+
+              <% } else { %>
+              <div class="container flex-horizontal-around-center">
+                <div>
+                  <span class="white-text graph">HEAD : </span>
+                </div>
+                <span class="white-text graph"><%= cci.head_name %></span>
+              </div>
+              <br />
+              <% } if( ! cci.mcu_id ){ %>
+              <a href="" class="no-text-decoration">
+                <div class="container flex-horizontal-around-center">
+                  <span class="white-text graph"
+                    ><i class="fa fa-user-plus white-text"> </i>REGISTER MCU
+                    HEAD</span
+                  >
+                  <div></div>
+                </div>
+              </a>
+              <% } else { %>
+              <div class="container flex-horizontal-around-center">
+                <div>
+                  <span class="white-text graph">MCU HEAD : </span>
+                </div>
+                <span class="white-text graph"><%= cci.mcuHead_name %></span>
+              </div>
+              <% } %>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+  crossorigin="anonymous"
+></script>

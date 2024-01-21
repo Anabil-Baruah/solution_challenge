@@ -1,0 +1,101 @@
+<%- include("../partials/headerCwcDashboard")%> Hello Tanisha
+<section id="content-area">
+    <div class="starting">
+         <div class="row">
+             <div class="col-md-6">
+                <h2 class="head">CHILDREN UNDER CARE</h2>
+                <label for="" class="district">DISTRICT <%= employee.district.toUpperCase() %></label>  
+                <br> <br>
+                <h1 class=" white-text"><%= cwc.strength %></h1>
+                <p class="number white-text">TOTAL NUMBER OF CHILDREN</p>
+             
+             </div>
+             <div class="col-md-6">
+             </div>
+         </div>
+
+    </div>
+    <!--Child details-->
+    <div class="pos pl-0 ">
+        <!--table-->
+        <div class="listr table-parent">
+            
+            <table id="table "
+            data-toggle="table"
+            data-search="true"
+            data-show-columns="true"
+            data-show-refresh="true"
+            data-show-toggle="true"
+            >
+                <thead class="purple-gradient">
+                     <tr>
+                         <th >
+                             CHILD ID
+                         </th>
+                         <th >
+                             NAME
+                         </th>
+                         <th >
+                             CCI NAME
+                         </th>
+                         <th >
+                             AGE
+                         </th>
+                         <th  class="posss">
+                             ACTION
+                         </th>
+                     </tr>
+                </thead>
+                <tbody>
+                    <%child.forEach(function(eachChild){%>
+                        <tr>
+                            <td><%=eachChild.child_id%></td>
+                            <td><%=eachChild.firstName+" "+eachChild.lastName%> </td>
+                            <td><%=eachChild.cci_name%></td>
+                            <td><%=eachChild.age%></td>
+                            <td class="joining">
+                                <button class="btn " type="button"><a  href="/cwc/dashboard/allChildren/viewChildDetails/<%=employee.employee_id%>/<%=eachChild.child_id%>">VIEW</a></button>
+         
+                                   
+                            </td>
+                          </tr>
+                    <%})%>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+
+
+
+<script>
+$(document).ready(function(){
+    $(".default_option").click(function(){
+        $(".dropdown ul").toggleClass("active");
+    });
+    $(".dropdown ul li").click(function(){
+        var text = $(this).text();
+        $(".default_option").text(text);
+        $(".dropdown ul").removeClass("active");
+    });
+});
+
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script
+src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+crossorigin="anonymous"
+></script>
+<script
+src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+crossorigin="anonymous"
+></script>
+<script src="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<%- include("../partials/headerCwcDashboard")%>
+
+<section id="content-area">
+        
+    <!--heading-->
+    <div class="child-view-starting">
+       <a class="child-view-back" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+       <a class="op" href="/cwc/dashboard/editChildDetails/<%= employee.employee_id%>/<%= child.child_id%>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+       <a class="op" href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+    </div>
+        
+    <!--details-->
+    <div class="container">
+       <form action="/cwc/dashboard/editChildDetails/<%= employee.employee_id%>/<%= child.child_id%>" method="POST">
+            <div class="personalinfo child-view jade"> 
+                <!--image-->
+                <div class="image">
+                    <img src="/images/icons/usericon.svg" alt="">                  
+                </div>
+                <h5 for="" class="white-text">ID : <%= child.child_id.toUpperCase() %></h5>
+                   
+                <hr>
+                <div class="form-group">
+                    <label for="" class="fields">NAME</label>   <br>
+                    
+                    <div class="editDetails-show " id="edit-child-details-edit-icon-parent-1">
+                        <label for="" class="values view-child-details-data"><%= child.firstName.toUpperCase()  + " " + child.middleName.toUpperCase() + " " + child.lastName.toUpperCase() %> </label>
+                        <i class="fa fa-pencil-square-o edit-child-details-edit-icon " id="edit-child-details-edit-icon-1"></i>
+                    </div>
+
+                    <div class="row editDetails-hide" id="edit-child-details-edit-icon-edit-area-1">                    
+                        <div class="col-sm-3">                            
+                          <input type="text" name="firstName" id="fname" class="form-control" value="<%= child.firstName %>">
+                        </div>
+                        <div class="col-sm-3">                            
+                          <input type="text" name="middleName" id="mname" class="form-control" value="<%= child.middleName %>">
+                        </div>
+                        <div class="col-sm-3">                            
+                          <input type="text" name="lastName" id="lname" class="form-control" value="<%= child.lastName %>">
+                        </div>
+                        <div class="col-sm-3">                            
+                            <input type="submit" class="btn btn-dark" value="Save">
+                            <button class="btn btn-danger">Cancel</button>
+                        </div>
+                    </div>
+                </div> 
+                <div class="form-group">                               
+                
+                            <label for="" class="fields">DATE OF BIRTH</label> <br>
+                            <div class="editDetails-show " id="edit-child-details-edit-icon-parent-2">
+                                <label for="" class="values view-child-details-data"><%= child.dateOfBirth %></label>
+                                <i class="fa fa-pencil-square-o edit-child-details-edit-icon " id="edit-child-details-edit-icon-2"></i>
+                            </div>
+                            <div class=" editDetails-hide" id="edit-child-details-edit-icon-edit-area-2"> 
+                                
+                                     <input type="date" class="form-control" value="<%= child.dateOfBirth %>">
+                                    <input type="submit" class="btn btn-dark" value="Save">
+                                        <button class="btn btn-danger">Cancel</button>
+                            
+                                
+
+                                 
+                            </div>
+                                   
+                </div>
+                <div class="form-group">
+                    <label for="" class="fields">AGE</label> <br>
+                    <div class="editDetails-show " id="edit-child-details-edit-icon-parent-3">
+                        <label for="" class="values view-child-details-data"><%= child.age %></label>
+                        <i class="fa fa-pencil-square-o edit-child-details-edit-icon " id="edit-child-details-edit-icon-3"></i>
+                    </div>
+                    <div class=" editDetails-hide" id="edit-child-details-edit-icon-edit-area-3">
+                        <div class="row">
+                            <div class="col-md-7">  <input type="number" name="age" class="form-control" value="<%= child.age %>"></div>
+                            <div class="col-md-5"> <input type="submit" class="btn btn-dark" value="Save">
+                                <button class="btn btn-danger">Cancel</button></div>
+                        </div>   
+                      
+
+                       
+                   </div>
+                    
+                </div>  
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="" class="fields">GENDER</label> <br>
+                            <div class="editDetails-show " id="edit-child-details-edit-icon-parent-4">
+                                <label for="" class="values view-child-details-data"><%= child.gender.toUpperCase() %></label>
+                                <i class="fa fa-pencil-square-o edit-child-details-edit-icon " id="edit-child-details-edit-icon-4"></i>
+                            </div>
+                            <div class=" editDetails-hide" id="edit-child-details-edit-icon-edit-area-4">
+                                <div class="row">
+                                    <div class="col-md-7"> <input type="text" name="gender" class="form-control" value="<%= child.gender.toUpperCase() %>"></div>
+                                    <div class="col-md-5"> <input type="submit" class="btn btn-dark" value="Save">
+                                        <button class="btn btn-danger">Cancel</button></div>
+                                </div>
+                               
+
+                               
+                        
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="" class="fields">CASTE</label> <br>
+                            <div class="editDetails-show " id="edit-child-details-edit-icon-parent-5">
+                                <label for="" class="values view-child-details-data"><%= child.caste %></label>
+                            
+                                 <i class="fa fa-pencil-square-o edit-child-details-edit-icon " id="edit-child-details-edit-icon-5"></i>
+                            </div>
+                            <div class=" editDetails-hide" id="edit-child-details-edit-icon-edit-area-5"> 
+                                <div class="row">
+                                    <div class="col-md-7"> <input type="text" name="caste" class="form-control" value="<%= child.caste %>"></div>
+                                    <div class="col-md-5"> <input type="submit" class="btn btn-dark" value="Save">
+                                        <button class="btn btn-danger">Cancel</button></div>
+                                </div>  
+                               
+
+                               
+                           </div>
+                           
+                           
+                        </div>  
+                        
+                           
+                            
+                                                    
+                  
+
+                
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="fields">RELIGION</label> <br>
+                    <div class="editDetails-show " id="edit-child-details-edit-icon-parent-6">
+                        <label for="" class="values view-child-details-data"><%= child.religion %></label>
+                         <i class="fa fa-pencil-square-o edit-child-details-edit-icon " id="edit-child-details-edit-icon-6"></i>
+                    </div>
+                    <div class=" editDetails-hide" id="edit-child-details-edit-icon-edit-area-6"> 
+                        <div class="row">
+                            <div class="col-md-7"> <input type="text" name="religion" class="form-control" value="<%= child.caste %>"></div>
+                            <div class="col-md-5"><input type="submit" class="btn btn-dark" value="Save">
+                                <button class="btn btn-danger">Cancel</button></div>
+                        </div>  
+                       
+                    </div> 
+                        
+                   </div>
+
+                
+
+                
+                      
+                <div class="form-group">
+                    <label for="" class="fields">AADHAAR NUMBER</label> <br>
+                    <div class="editDetails-show " id="edit-child-details-edit-icon-parent-7">
+                        <label for="" class="values view-child-details-data">724689189479719</label>
+                         <i class="fa fa-pencil-square-o edit-child-details-edit-icon " id="edit-child-details-edit-icon-7"></i>
+                            </div>
+                            <div class=" editDetails-hide" id="edit-child-details-edit-icon-edit-area-7">
+                                <div class="row">
+                                    <div class="col-md-7"><input type="number" name="aadharNumber" class="form-control" value="<%= child.aadharNumber %>"></div>
+                                    <div class="col-md-5"> <input type="submit" class="btn btn-dark" value="Save">
+                                        <button class="btn btn-danger">Cancel</button> </div>
+                                </div>   
+                                
+
+                               
+                           </div>
+                   
+                    
+                </div> 
+
+                
+                <div class="form-group">                               
+                    <div class="row position">
+                        <div class="col-sm-6">
+                            <label for="" class="fields">FATHER'S NAME</label> <br>
+                            <div class="editDetails-show " id="edit-child-details-edit-icon-parent-8">
+                                <label for="" class="values view-child-details-data"><%= child.fatherName.toUpperCase() %></label> 
+                                 <i class="fa fa-pencil-square-o edit-child-details-edit-icon " id="edit-child-details-edit-icon-8"></i>
+                            </div>
+                            <div class=" editDetails-hide" id="edit-child-details-edit-icon-edit-area-8"> 
+                                <div class="row">
+                                    <div class="col-md-7"> <input type="text" name="fatherName" class="form-control" value="<%= child.fatherName %>"></div>
+                                    <div class="col-md-5"><input type="submit" class="btn btn-dark" value="Save">
+                                        <button class="btn btn-danger">Cancel</button> </div>
+                                </div>  
+                               
+
+                                 
+                           </div>
+                                       
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="" class="fields">MOTHER'S NAME</label> <br>
+                            <div class="editDetails-show " id="edit-child-details-edit-icon-parent-9">
+                                <label for="" class="values view-child-details-data"><%= child.motherName.toUpperCase() %></label>
+                                 <i class="fa fa-pencil-square-o edit-child-details-edit-icon " id="edit-child-details-edit-icon-9"></i>
+                            </div>
+                            <div class=" editDetails-hide" id="edit-child-details-edit-icon-edit-area-9">
+                                <div class="row">
+                                    <div class="col-md-7"> <input type="text" name="motherName" class="form-control" value="<%= child.motherName %>"></div>
+                                    <div class="col-md-5"> <input type="submit" class="btn btn-dark" value="Save">
+                                        <button class="btn btn-danger">Cancel</button></div>
+                                </div>   
+                                
+
+                               
+                           </div>
+                            
+                            
+                        </div>                             
+                    </div>                   
+                </div>
+
+
+                <hr>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="" class="fields">BLOOD GROUP</label> <br>
+                            <div class="editDetails-show " id="edit-child-details-edit-icon-parent-10">
+                                <label for="" class="values view-child-details-data">A(+ve)</label>
+                                 <i class="fa fa-pencil-square-o edit-child-details-edit-icon " id="edit-child-details-edit-icon-10"></i>
+                            </div>
+                            <div class=" editDetails-hide" id="edit-child-details-edit-icon-edit-area-10">
+                                <div class="row">
+                                    <div class="col-md-7"> <input type="text" name="motherName" class="form-control" value=""></div>
+                                    <div class="col-md-5"><input type="submit" class="btn btn-dark" value="Save">
+                                        <button class="btn btn-danger">Cancel</button></div>
+                                </div>   
+                               
+
+                                
+                           </div>
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <label for="" class="fields">HIEGHT</label><br>
+                            <div class="editDetails-show " id="edit-child-details-edit-icon-parent-11">
+                                <label for="" class="values view-child-details-data">4 feet</label>  
+                                 <i class="fa fa-pencil-square-o edit-child-details-edit-icon " id="edit-child-details-edit-icon-11"></i>
+                            </div>
+                            <div class=" editDetails-hide" id="edit-child-details-edit-icon-edit-area-11"> 
+                                <div class="row">
+                                    <div class="col-md-7"> <input type="text" name="motherName" class="form-control" value=""></div>
+                                    <div class="col-md-5"> <input type="submit" class="btn btn-dark" value="Save">
+                                        <button class="btn btn-danger">Cancel</button></div>
+                                </div>  
+                               
+
+                               
+                           </div>
+                            
+                        </div>
+                       
+                
+                    </div>
+                </div>
+                <div class="form-group>
+                            
+                    <label for="" class="fields">WEIGHT</label> <br>
+                    <div class="editDetails-show " id="edit-child-details-edit-icon-parent-12">
+                        <label for="" class="values view-child-details-data">35 kgs</label>
+                         <i class="fa fa-pencil-square-o edit-child-details-edit-icon " id="edit-child-details-edit-icon-12"></i>
+                    </div>
+                    <div class=" editDetails-hide" id="edit-child-details-edit-icon-edit-area-12">
+                        <div class="row">
+                            <div class="col-md-7"> <input type="text" name="motherName" class="form-control" value=""></div>
+                            <div class="col-md-5"> <input type="submit" class="btn btn-dark" value="Save">
+                                <button class="btn btn-danger">Cancel</button> </div>
+                        </div>   
+                       
+
+                       
+                   </div>
+                   
+                </div>
+
+            
+        
+        
+                    
+                       
+
+                <!-- <div class="form-group">
+                    <div class="row position">
+                    
+                        <div class="col-sm-6">
+                            <label for="" class="fields">GUARDIAN 1</label>
+                            <div class="form-group">
+                                <label for="" class="fields">NAME</label>
+                                <label for="" class="values">Someone Pratap Singh</label>
+                   
+                            </div> 
+                            <div class="form-group">
+                                <label for="" class="fields">AGE</label>
+                               <label for="" class="values">35</label>
+                            </div> 
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="" class="fields">GUARDIAN 2</label>
+                            <div class="form-group">
+                                <label for="" class="fields">NAME</label>
+                                <label for="" class="values">KBC Pratap Singh</label>
+                               
+                            </div> 
+                            <div class="form-group">
+                                <label for="" class="fields">AGE</label>
+                               <label for="" class="values">40</label>
+                            </div> 
+                        </div>
+                       
+                    </div>
+                </div> -->
+                
+               
+                 <div class="form-group">
+                    <label for="" class="fields">PHYSICALLY CHALLENGED</label><br>
+                    <div class="editDetails-show " id="edit-child-details-edit-icon-parent-13">
+                        <label for="" class="values view-child-details-data">No</label>
+                         <i class="fa fa-pencil-square-o edit-child-details-edit-icon " id="edit-child-details-edit-icon-13"></i>
+                            </div>
+                            <div class=" editDetails-hide" id="edit-child-details-edit-icon-edit-area-13">   
+                               <div class="row">
+                                   <div class="col-md-7">
+                                    <input type="text" name="motherName" class="form-control" value="">
+                                    </div>
+                                    <div class="col-md-5">
+                                    <input type="submit" class="btn btn-dark" value="Save">
+                                <button class="btn btn-danger">Cancel</button>
+                            
+                                   </div>
+                               </div>
+                           </div>
+                    
+                </div> 
+                <div class="form-group">
+                    <label for="" class="fields">MENTAL ILLNESS</label><br>
+                    <div class="editDetails-show " id="edit-child-details-edit-icon-parent-14">
+                        <label for="" class="values view-child-details-data">No</label>
+                         <i class="fa fa-pencil-square-o edit-child-details-edit-icon " id="edit-child-details-edit-icon-14"></i>
+                            </div>
+                            <div class=" editDetails-hide" id="edit-child-details-edit-icon-edit-area-14">   
+                               <div class="row">
+                                   <div class="col-md-7">
+                                    <input type="text" name="motherName" class="form-control" value="">
+ 
+                                   </div>
+                                   <div class="col-md-5">
+                                       
+                                    <input type="submit" class="btn btn-dark" value="Save">
+                                    <button class="btn btn-danger">Cancel</button> 
+                                   </div>
+                               </div> 
+                           </div>
+                    
+                </div>           
+            
+                <p class="infoheading">Official Information</p>
+                <hr>
+               
+                <div class="form-group">
+                    <label for="" class="fields">ASSIGNED CCI NAME</label> <br>
+                    <label for="" class="values"><%= child.cci_name %></label>
+                </div> 
+                <div class="form-group">
+                    <label for="" class="fields">REGISTRATION DATE AND TIME</label> <br>
+                    <label for="" class="values view-child-details-data"><%= child.registrationDate %></label>
+                </div>
+               
+                <div class="form-group">
+                    <label for="" class="fields">WITNESS</label> <br>
+                    <label for="" class="values view-child-details-data"><%= child.witness_name + " , " +child.witness_id%></label>
+                </div>                                                   
+       </form>
+    </div> 
+    
+</section>
+
+<script src="/scripts/CWC/edit-child-details.js">
+</script>
+
+<script
+src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+crossorigin="anonymous"
+></script>
+<script
+src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+crossorigin="anonymous"
+></script>
+<script
+src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+crossorigin="anonymous"
+></script>
+</body>
+</html>

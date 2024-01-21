@@ -1,0 +1,130 @@
+#content-area {
+  margin-top: 12vh !important;
+  margin-left: 50px !important;
+  width: 96% !important;
+}
+
+.district {
+  font-size: 20px;
+}
+
+.starting {
+  background: #7e04b6;
+  border-radius: 6px;
+  width: 96%;
+  height: 40vh;
+  color: #fff;
+}
+.arrangement {
+  margin: 10px;
+  padding: 10px;
+
+  border-radius: 8px;
+}
+
+.required {
+  width: 70%;
+
+  margin-left: 50px;
+
+  background: #fff;
+  box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, 0.9);
+  display: flex;
+  color: black;
+  align-items: center;
+  border-radius: 0.8rem;
+}
+.required-image {
+  width: 200px;
+  transform: translateX(-4rem);
+  background: linear-gradient(to right, #fff, #d3d3d3, #7e04b6);
+  box-shadow: 0.5rem 0.5rem 3rem 1px rgba(0, 0, 0, 0.5);
+  border-radius: 0.8rem;
+}
+.required-image img {
+  width: 100%;
+  border: 1px solid #949191;
+  border-radius: 0.8rem;
+}
+.required-content {
+  transform: translateX(-3rem);
+  padding-top: 10px;
+  width: 300px;
+}
+.required-title {
+  font-size: 26px;
+  color: #7e04b6;
+}
+.required-text {
+  padding-left: 10px;
+  font-size: 18px;
+  color: rgb(59, 59, 59);
+}
+.required-buttons .fa {
+  color: #7e04b6 !important;
+  padding-left: 30px;
+}
+.required-buttons2 .fa {
+  color: #7e04b6 !important;
+  padding-left: 55px;
+}
+.contain2 {
+  margin: 10px;
+}
+.contain2 .row {
+  width: 100%;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f4f6f9;
+}
+.graph-title {
+  color: #7e04b6;
+
+  font-size: 22px;
+}
+.graph-info {
+  padding-left: 10px;
+  font-size: 18px;
+}
+.graph-info .fa {
+  color: blue;
+  font-size: 12px;
+  padding-right: 5px;
+}
+.card-header {
+  text-align: left;
+  font-size: 22px;
+}
+
+.card-body {
+  border-left: 1px solid #d3d3d3;
+  border-right: 1px solid #d3d3d3;
+}
+
+.graph-paragraph {
+  font-size: 14px;
+  color: #7e04b6;
+}
+.graph-buttons .fa {
+  padding-left: 30px;
+  color: #7e04b6;
+}
+.state {
+  color: #1f138d;
+  text-align: left;
+  font-size: 18px;
+  padding-top: 10px;
+}
+.stat {
+  border-right: 1px solid #d3d3d3;
+}
+
+/* ================================================ SHRADDHA */
+.card-footer {
+  font-size: 16px;
+}
+
+.card-footer .fa {
+  font-size: 14px;
+}

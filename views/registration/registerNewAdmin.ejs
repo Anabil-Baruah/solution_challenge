@@ -1,0 +1,67 @@
+<%- include("../partials/headerAdminDashboard")%>
+
+<section class="inline-flex" id="content-area">
+  <div class="container pos">
+    <div class="heading">
+      <p class="name">New Admin Registration Portal</p>
+    </div>
+    <div class="image">
+      <img src="/images/groupemployee.jpg" alt="">
+    </div>
+    <div class="pt-3 personalinfo">
+      <form action="/admin/registerNewAdmin/<%=admin.employee_id%>" method="POST">
+        <div class="form-group">
+          <label for="" class="fields">EMPLOYEE ID</label>
+          <input type="text" name="employee_id" class="form-control" placeholder="employee Id" />
+        </div>
+        <div class="form-group">
+          <label for="" class="fields">NAME</label>
+          <div class="row">
+            <div class="col-md-4">
+              <input type="text" name="firstName" class="form-control" placeholder="first name" />
+            </div>
+            <div class="col-md-4">
+              <input type="text" name="middleName" class="form-control" placeholder="middle name" />
+            </div>
+            <div class="col-md-4">
+              <input type="text" name="lastName" class="form-control" placeholder="last name" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="fields">AADHAAR NUMBER</label>
+          <input type="text" name="aadhaarNumber" class="form-control" placeholder="enter aadhaar number" />
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="" class="fields">CONTACT NUMBER</label>
+              <input type="text" name="contactNumber" class="form-control" placeholder="mobile number" />
+            </div>
+            <div class="col-md-6">
+              <label for="" class="fields">EMAIL ID</label>
+              <input type="text" name="email" class="form-control" placeholder="email Id" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="fields">PASSWORD</label>
+          <input type="text" name="password" class="form-control" placeholder="password" />
+        </div>
+       <div class="form-group">
+        <label for="" class="fields">AUTHERISATION LEVEL</label> 
+        <select class="form-control" name="autherisation_level" class="form-control">
+          <option value="national">National</option>
+          <option value="state">State</option>
+          <option value="district">District</option>
+        </select>
+
+       </div>
+       <div class="form-group pt-4">
+        <input type="submit" name="" id="" class="btn jade" />
+       </div>
+        
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,331 @@
+<%- include("../partials/headerCwcDashboard")%>
+
+
+  <div class="flex-vertical">
+    
+    <section>
+      <div class="dashboard-home-info-container">
+        <div class="cwc-information-container">
+          <div class="about-cwc">
+            <h2><%=(cwc.district).toUpperCase()%></h2>
+            <p class="white-text">
+              VIKRAM BAHADUR SINGH <br />
+              CHAIRMAN
+            </p>
+            <h1><%=cwcEmployee_count%></h1>
+            <p class="white-text">MEMBERS</p>
+          </div>
+          <div>
+            <h1><%=cci_count%></h1>
+            <p>
+              <a href="/cwc/dashboard/cciDetails/<%= employee.employee_id %>">
+                CHILD CARE <br />
+                INSTITUTIONS
+              </a>
+            </p>
+            <h1><%= cwc.strength %></h1>
+            <p>
+              <a href="">
+                CHILDREN <br />
+                UNDER CARE
+              </a>
+            </p>
+          </div>
+          <img
+            src="/images/cwc/building-for-dashboard.svg"
+            alt=""
+            class="undraw-svg-main"
+          />
+        </div>
+      </div>
+
+      <div class="dashboard-home-content-container">
+        <div id="content-area-1" class="container">
+          <div class="parent-row row">
+            
+                         
+                             
+            
+            <% var allchildren = children %>
+            <% var counter = 0; %>
+            <% children.forEach( function(child){ %>
+            <% btnID = "myBtn" + counter; %>
+            <% closeBtnID = "closeBtn" + counter; %>
+           
+            <% modalDivID = "myModal" + counter; %>
+            
+            <span id="<%= btnID %>" >
+              <div class="home-main-content-grid-block col-12 flex-between">              
+                <div class="action-required">
+                   <h6 class="crimson p-2">
+                    ACTION REQUIRED
+                   </h6> 
+                  
+                   <% if(child.isDataComplete){ %>
+                    <div class="purple-gradient px-3 py-4">
+                      Approval for Addition to the Eligibility List <br>
+                    </div>
+                    <% } else { %>
+                    <div class="magenta  py-4">
+                      Status and Data Updation Required
+                      <br><br>
+                    </div>
+                  <%  } %>
+                </div>
+                  <div class="details-of-child-for-action  ">
+                  <h6><%= child.firstName +" " +child.lastName %></h6>
+                  <p>
+                  <span class="uuid"> <%= child.child_id %></span><br>
+                  CCI : <%= child.cci_id %> <br>
+                  Registration Date : <br> <%= String(child.registrationDate).substring(0,15) %> <br>
+                  <p class= "badge badge-secondary">ORPHANED</p>
+                </p>
+                </div>
+
+                <div id="<%= modalDivID %>" class="modal">                
+                  <div class="modal-content">
+                    <span id="<%= closeBtnID %>"><a href="">&times;</a></span>
+                    <br>
+                    <div class="personalinfo child-view text-center">
+                      <h5 for="">ID : <%= child.child_id.toUpperCase() %></h5>
+            
+                      <label for="" class="values view-child-details-data"><%= child.firstName.toUpperCase()  + " " + child.middleName.toUpperCase() + " " + child.lastName.toUpperCase() %> , </label>              
+                      <label for="" class="values view-child-details-data">AGE <%= child.age %></label> <label for="" class="values view-child-details-data">,  <%= child.gender.toUpperCase() %></label>
+                      <br>
+                      <label for="" class="values view-child-details-data">REGISTERED ON :  <%= String(child.registrationDate).substring(0,15) %> <br></label>
+                      <hr>
+                      
+                      <div class="row position">
+                        <div class="col-sm-6">
+                            <label for="" class="fields">FATHER'S NAME</label> <br>
+                            <label for="" class="values view-child-details-data">
+                            <% if(child.fatherName){ %>
+                            <%= child.fatherName.toUpperCase() %>
+                            <% } else { %>
+                              <label for="" class="values view-child-details-data crimson-text">ADD VALUE</label>
+                            <% } %>
+        
+                        </div>
+                        <div class="col-sm-6">
+                          <label for="" class="fields">MOTHER'S NAME</label> <br>
+                            <label for="" class="values view-child-details-data">
+                            <% if(child.motherName){ %>
+                            <%=  child.motherName.toUpperCase()  %>
+                            <% } else { %>
+                              <label for="" class="values view-child-details-data crimson-text">ADD VALUE</label>
+                            <% } %>
+                                                
+                        </div>                             
+                      </div> 
+                      
+                      <div class="row position">
+                        <div class="col-sm-6">
+                          <label for="" class="fields">DATE OF BIRTH</label> <br>
+                          <% if(child.dateOfBirth){ %>
+                            <%=  child.dateOfBirth  %>
+                            <% } else { %>
+                            <label for="" class="values view-child-details-data crimson-text">ADD VALUE</label>
+                            <% } %>
+                                                 
+                        </div>
+                        <div class="col-sm-6">
+                          <label for="" class="fields">CASTE</label> <br>
+                          <% if(child.caste){ %>
+                            <%= child.caste %>
+                            <% } else { %>
+                            <label for="" class="values view-child-details-data crimson-text">ADD VALUE</label>
+                            <% } %>
+                           
+                        </div>  
+                      </div>    
+                        <label for="" class="fields">AADHAAR NUMBER</label> <br>
+                        <label for="" class="values view-child-details-data"> <%= child.aadharNum %> </label>
+                        <% if(child.aadharNum){ %>
+                          <%= child.aadharNum %>
+                          <% } else { %>
+                          <label for="" class="values view-child-details-data crimson-text">ADD DATA</label>
+                          <% } %>
+                      <hr>
+                      <div class="row position">
+                        <div class="col-sm-3">
+                        </div>
+                        <div class="col-sm-6">
+                          <label for="" class="fields">TAKE ACTION AFTER  </label> <br>
+                            
+                        </div>
+                        <div class="col-sm-3">
+                           </div>  
+                      </div>    
+                      <div class="row position">
+                        <div class="col-sm-3">
+                          <a class="btn btn-primary " href="/cwc/dashboard/allChildren/viewChildDetails/<%=employee.employee_id%>/<%=child.child_id%>"">VIEW CHILD DATA</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a class="btn btn-dark " href="/cwc/dashboard/snooze/<%= employee.employee_id %>/<%=child.child_id%>/20">20 DAYS</a>
+                            <a class="btn btn-dark " href="/cwc/dashboard/snooze/<%= employee.employee_id %>/<%=child.child_id%>/50">50 DAYS</a>
+                            <a class="btn btn-dark " href="/cwc/dashboard/snooze/<%= employee.employee_id %>/<%=child.child_id%>/90">90 DAYS</a>
+                            
+                        </div>
+                        <div class="col-sm-3">
+                          <% if(child.isDataComplete){ %>
+                                               
+                          <a class="btn btn-danger " href="/cwc/dashboard/addToRecommendationList/<%= employee.employee_id %>/<%=child.child_id%>">Recommend For Adoption</a>
+                          <% }else{ %>
+                          <a class="btn btn-danger " href="/cwc/dashboard/editChildDetails/<%= employee.employee_id %>/<%=child.child_id%>">UPDATE DATA</a>
+                          <% } %>
+                        </div>  
+                      </div> 
+                    </div>
+
+                  </div>        
+                </div>
+              </div>
+            </span>
+            <% counter++; %>
+            <% }); %>                           
+          </div>           
+        </div>
+      
+
+        <div id="content-area-2" class="container">
+          <div class="parent-row row">
+            <div class="home-grid-side-content-block col-12">
+              <h5>ADOPTION ELIGIBILITY STATISTICS</h5>
+              <br />
+              <div class="flex-around">
+                <div>
+                  <h1>500</h1>
+                  <p>
+                    Children Eligible <br />
+                    for Adoption
+                  </p>
+                </div>
+                <div>
+                  <h1>230</h1>
+                  <p>
+                    Children in <br />
+                    Waiting List
+                  </p>
+                </div>
+                <img src="/images/cwc/pie-chart-example.jpg" alt="">
+
+              </div>
+            </div>
+
+            <div class="home-grid-side-content-block col-12">
+              <h5>ATTENDANCE AND MOVEMENT DATA SYNC STATUS</h5>
+              <table class="table table-striped table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Institute Name</th>
+                    <th scope="col">Last Sync Date</th>
+                    <th scope="col">Last Sync Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>JH001</td>
+                    <td>St. JUDES</td>
+                    <td>25-01-2020</td>
+                    <td>5:15 PM</td>
+                  </tr>
+                  <tr>
+                    <td>JH003</td>
+                    <td>Mridul's Orphanage</td>
+                    <td>25-01-2020</td>
+                    <td>5:15 PM</td>
+                  </tr>
+                  <tr>
+                    <td>JH002</th>
+                    <td>Mother Terresa's Orphanage</td>
+                    <td>25-01-2020</td>
+                    <td>5:15 PM</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="home-grid-side-content-block col-12 ">
+              <h4>CHILDREN RECOMMENDED FOR ADOPTION</h4>
+              <div class="table">
+                <table class="table">
+                  <thead class="purple-gradient">
+                    <tr>
+                      <th scope="col">ChildID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">CCI Name</th>
+                    </tr>
+                  </thead>
+                  <tbody class="childIdInTable">
+                    <%recommendedChildren.forEach(function(child){%>
+                    <tr>
+                      <th scope="row" class="childIdInTable" ><%=child.child_id%></th>
+                      <td class="childIdInTable"><%=child.firstName + " " + child.firstName%></td>
+                      <td class="childIdInTable"><%=child.cci_name%></td>
+                    </tr>
+                  <%})%>
+                   
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>       
+      </div>
+
+       
+    </section>
+
+    <section>
+      <div class="bottom-info purple-gradient">
+        <h6> <b> All Rights Reserved @ team SHaKTiMaan</b></h6>
+      </div>
+    </section>   
+  </div>
+
+  <script>
+   
+    var counter = <%= counter %>;
+   
+    var count = 0;
+    var modal = [];
+    var btn = [];
+    var closeBtn =[];
+    for(let count=0;count<counter;count++){
+      modal[count] = document.getElementById("myModal" + count);
+
+      btn[count] = document.getElementById("myBtn" + count);
+      
+      closeBtn[count] = document.getElementById("closeBtn" + count);
+
+      btn[count].onclick = function() {
+        modal[count].style.display = "block";
+      }
+      closeBtn[count].onclick = function() {
+        modal[count].style.display = "none";
+      }
+      window.onclick = function(event) {
+         if (event.target == modal[count]) {
+            modal[count].style.display = "none";
+        }
+      }
+    }
+    </script> 
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
